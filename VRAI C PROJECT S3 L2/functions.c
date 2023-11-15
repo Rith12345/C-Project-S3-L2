@@ -156,3 +156,44 @@ void Insert_cell(t_d_list *my_t_d_list, int value, int level) // Insert a cell w
     }
     return;
 }
+
+void Display_aligned_level_list(t_d_list *my_t_d_list) // Display level list function, it takes 1 parameter : the address of the level list [my_t_d_list]
+{
+    if (my_t_d_list->max_level == 0) // Check if the level list is not created ?
+    {
+        printf("The level list is empty\n"); // Display it's impossible to display a none created level list
+    }
+    else
+    {
+        t_d_cell *temp_ptr; // Initialize a temporary pointer which points to [t_d_cell] structure
+        for (int i = 0; i < my_t_d_list->max_level; i++)  // Iterate [max_level] times to print all the different levels of the [t_d_list]
+        {
+            temp_ptr = my_t_d_list->head[i]; // temporary pointer get the address of the first byte memory block allocated for [t_d_cell]
+            t_d_cell *temp_shr = my_t_d_list->head[0];
+            printf("[list head_%d @-]", i); // print the different level one by one starting from 0
+            do
+            {
+                printf("--");
+                while ( temp_ptr != temp_shr)
+                {
+                    temp_shr=temp_shr->next[0];
+                    printf("------------");
+                }
+                printf("> ");
+                printf("[ %d|@-]", temp_ptr->value); // display the value of each cell on every level
+                temp_ptr = temp_ptr->next[i];
+                temp_shr=temp_shr->next[0];
+            }
+            while (temp_ptr != NULL); // while the temporary pointer don't point to NULL on each level to display from head to tail
+            printf("--");
+            while (temp_shr!=NULL)
+            {
+                temp_shr=temp_shr->next[0];
+                printf("------------");
+            }
+            printf(">");
+            printf("NULL\n"); // display the end of each level
+        }
+    }
+    return;
+}

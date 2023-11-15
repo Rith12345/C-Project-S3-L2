@@ -14,5 +14,7 @@ int main()
     Insert_cell(ptr_to_t_d_list, 25, 1); // insert the cell containing value : 25 and 1 levels
     Insert_cell(ptr_to_t_d_list, 18, 4); // insert the cell containing value : 18 and 4 levels
     Display_level_list(ptr_to_t_d_list); // display the new level list
+    printf("\n");
+    Display_aligned_level_list(ptr_to_t_d_list); // display the new level list with aligned level
     return 0;
 }

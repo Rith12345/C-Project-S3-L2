@@ -25,4 +25,6 @@ void Insert_cell_at_head(t_d_list *my_t_d_list, int value, int level); // Insert
 
 void Insert_cell(t_d_list *my_t_d_list, int value, int level); // Insert a new cell in the level list at each level [max_level] with it respect number of level [level] of the new cell
 
+void Display_aligned_level_list(t_d_list *my_t_d_list);
+
 #endif //VRAI_C_PROJECT_FUNCTIONS_H
